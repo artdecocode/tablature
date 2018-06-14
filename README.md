@@ -8,7 +8,7 @@
 yarn add -E tablature
 ```
 
-## `tablature(Conf: Object):string`
+## `tablature(Conf: Object): string`
 
 Returns a string representation of data as a table.
 
