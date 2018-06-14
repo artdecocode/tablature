@@ -1,5 +1,24 @@
-import tablature from 'tablature'
+import tablature from '../src'
 
-(async () => {
-  await tablature()
-})()
+const DATA = [
+  {
+    name: 'hello',
+    when: 'yesterday',
+  },
+  {
+    name: 'world',
+    when: 'now',
+  },
+]
+
+const res = tablature({
+  keys: ['name', 'when'],
+  data: DATA,
+  centerValues: ['when'],
+  centerHeadings: ['when'],
+  headings: {
+    name: 'Name',
+    when: 'When',
+  },
+})
+console.log(res)

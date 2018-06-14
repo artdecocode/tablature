@@ -15,14 +15,15 @@ const makeBinaryHash = (arr) => {
 
 
 /**
- * Print values in a table
+ * Display values in a table.
  * @param {Config} conf
  * @param {string[]} config.keys Keys to print as columns.
  * @param {Object.<string, string>[]} config.data An array of data items to prints as rows.
  * @param {Object.<string, string>} [config.headings] Display names for each column.
  * @param {Object.<string, Replacement>} [config.replacements] A map of replacement functions which will run against data items.
- * @param {string[]} [config.centerValues] Center values of this column (use original keys, not headings)
+ * @param {string[]} [config.centerValues] Centre values of this column (use original keys, not headings)
  * @param {string[]} [config.centerHeadings] Center headings of this column (use original keys, not headings)
+ * @returns {string} A string which represents a table.
  */
 export default function tablature(conf) {
   const {
