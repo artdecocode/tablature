@@ -1,0 +1,22 @@
+<types>
+  <type name="Config" desc="Options for the program.">
+    <prop type="Array<string>" name="keys">
+      Keys to print as columns.
+    </prop>
+    <prop type="Array<Object<string, string>>" name="data">
+      The array of data items to prints as rows.
+    </prop>
+    <prop opt type="Object<string, string>" name="headings">
+      Display names for each column.
+    </prop>
+    <prop type="Object.<string, Replacement>" name="replacements">
+      A map of replacement functions which will run against data items.
+    </prop>
+    <prop opt type="Array<string>" name="centerValues">
+      Centre values of these column (use original keys, not headings).
+    </prop>
+    <prop opt type="Array<string>" name="centerHeadings">
+      Center headings of these column (use original keys, not headings).
+    </prop>
+  </type>
+</types>

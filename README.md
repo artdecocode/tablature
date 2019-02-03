@@ -1,19 +1,51 @@
 # tablature
 
-[![npm version](https://badge.fury.io/js/tablature.svg)](https://badge.fury.io/js/tablature)
+[![npm version](https://badge.fury.io/js/tablature.svg)](https://npmjs.org/package/tablature)
 
-`tablature` is a Node.js package to display data in a table.
+`tablature` Will Display Data In A Table In CLI.
 
 ```sh
 yarn add -E tablature
 ```
 
-## `tablature(Conf: Object): string`
+## Table Of Contents
+
+- [Table Of Contents](#table-of-contents)
+- [API](#api)
+- [`tablature(config: config): String`](#tablatureconfig-config-string)
+  * [`Config`](#type-config)
+  * [Replacement](#replacement)
+- [Copyright](#copyright)
+
+<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/0.svg?sanitize=true"></a></p>
+
+## API
+
+The package is available by importing its default function:
+
+```js
+import tablature from 'tablature'
+```
+
+<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/1.svg?sanitize=true"></a></p>
+
+## `tablature(`<br/>&nbsp;&nbsp;`config: config,`<br/>`): String`
 
 Returns a string representation of data as a table.
 
+__<a name="type-config">`Config`</a>__: Options for the program.
+
+|       Name        |                   Type                   |                            Description                             |
+| ----------------- | ---------------------------------------- | ------------------------------------------------------------------ |
+| __keys*__         | _Array&lt;string&gt;_                    | Keys to print as columns.                                          |
+| __data*__         | _Array&lt;Object&lt;string, string&gt;>_ | The array of data items to prints as rows.                         |
+| headings          | _Object&lt;string, string&gt;_           | Display names for each column.                                     |
+| __replacements*__ | _Object.&lt;string, Replacement&gt;_     | A map of replacement functions which will run against data items.  |
+| centerValues      | _Array&lt;string&gt;_                    | Centre values of these column (use original keys, not headings).   |
+| centerHeadings    | _Array&lt;string&gt;_                    | Center headings of these column (use original keys, not headings). |
+
 ```js
-import tablature from '../src'
+import tablature from 'tablature'
 
 const DATA = [
   {
@@ -38,21 +70,11 @@ const res = tablature({
 })
 console.log(res)
 ```
-
-```fs
-Name     When
+```
+[1mName[0m     [1mWhen[0m   
 hello  yesterday
 world     now
 ```
-
-| property       | type             | description                                                       |
-|----------------|------------------|-------------------------------------------------------------------|
-| keys           | string[]         | Keys to print as columns.                                         |
-| data           | `Object.<string, string>[]`       | An array of data items to prints as rows.        |
-| headings       | `Object.<string, string>` | Display names for each column.                                    |
-| replacements   | `Object.<string, Replacement>`  | A map of replacement functions which will run against data items. |
-| centerValues   | string[]         | Centre values of this column (use original keys, not headings)    |
-| centerHeadings | string[]         | Center headings of this column (use original keys, not headings)  |
 
 ### Replacement
 
@@ -70,8 +92,30 @@ const replacements = {
 }
 ```
 
----
+<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/2.svg?sanitize=true"></a></p>
 
-(c) [Art Deco Code][1] 2018
+## Copyright
 
-[1]: https://artdeco.bz
+<table>
+  <tr>
+    <th>
+      <a href="https://artd.eco">
+        <img src="https://raw.githubusercontent.com/wrote/wrote/master/images/artdeco.png" alt="Art Deco" />
+      </a>
+    </th>
+    <th>
+      © <a href="https://artd.eco">Art Deco</a>  
+      2019
+    </th>
+    <th>
+      <a href="https://www.technation.sucks" title="Tech Nation Visa">
+        <img src="https://raw.githubusercontent.com/artdecoweb/www.technation.sucks/master/anim.gif" alt="Tech Nation Visa" />
+      </a>
+    </th>
+    <th>
+      <a href="https://www.technation.sucks">Tech Nation Visa Sucks</a>
+    </th>
+  </tr>
+</table>
+
+<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/-1.svg?sanitize=true"></a></p>

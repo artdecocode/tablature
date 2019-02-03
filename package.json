@@ -1,28 +1,33 @@
 {
   "name": "tablature",
   "version": "1.0.0",
-  "description": "Display tabular data.",
-  "main": "build",
+  "description": "Display Tabular Data.",
+  "main": "build/index.js",
+  "module": "src/index.js",
   "scripts": {
-    "t": "zoroaster -b",
-    "test": "zoroaster -b test/spec",
-    "test-build": "BABEL_ENV=test-build yarn test",
+    "t": "zoroaster -a",
+    "test": "zoroaster -a test/spec",
+    "test-build": "ALAMODE_ENV=test-build yarn test",
     "test-all": "yarn-s test test-build",
     "test-watch": "yarn test -w",
     "lint": "eslint .",
+    "doc": "NODE_DEBUG=doc doc documentary -o README.md",
+    "d": "NODE_DEBUG=doc doc src/index.js -g",
     "e": "node example",
     "example/": "yarn e example/example.js",
-    "build": "babel src --out-dir build --source-maps"
+    "b": "alamode src -o build -s"
   },
   "files": [
-    "build"
+    "build",
+    "src"
   ],
   "repository": {
     "type": "git",
     "url": "git://github.com/artdecocode/tablature.git"
   },
   "keywords": [
-    "tablature"
+    "tablature",
+    "table"
   ],
   "author": "Anton <anton@adc.sh>",
   "license": "MIT",
@@ -31,16 +36,12 @@
   },
   "homepage": "https://github.com/artdecocode/tablature#readme",
   "devDependencies": {
-    "@babel/cli": "7.0.0-beta.49",
-    "@babel/core": "7.0.0-beta.49",
-    "@babel/plugin-syntax-object-rest-spread": "7.0.0-beta.49",
-    "@babel/plugin-transform-modules-commonjs": "7.0.0-beta.49",
-    "@babel/register": "7.0.0-beta.49",
-    "babel-plugin-transform-rename-import": "2.2.0",
-    "eslint": "4.19.1",
-    "eslint-config-artdeco": "1.0.0",
-    "snapshot-context": "2.0.1",
+    "alamode": "1.7.3",
+    "documentary": "1.21.1",
+    "eslint": "5.13.0",
+    "eslint-config-artdeco": "1.0.1",
+    "snapshot-context": "2.0.4",
     "yarn-s": "1.1.0",
-    "zoroaster": "2.1.0"
+    "zoroaster": "3.6.6"
   }
 }

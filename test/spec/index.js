@@ -58,6 +58,20 @@ const T = {
     })
     await test('replacements.txt', res.trim())
   },
+  async '!goes to new lines'({ SNAPSHOT_DIR }, { setDir, test }) {
+    setDir(SNAPSHOT_DIR)
+    const res = tablature({
+      keys: ['name', 'value'],
+      data: [{
+        name: 'test',
+        value: 'OK this is a test',
+      }, {
+        name: 'test2',
+        value: 'another test\nwith new line',
+      }],
+    })
+    await test('new-lines.txt', res.trim())
+  },
 }
 
 export default T

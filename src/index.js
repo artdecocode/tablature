@@ -16,13 +16,13 @@ const makeBinaryHash = (arr) => {
 
 /**
  * Display values in a table.
- * @param {Config} conf
- * @param {string[]} config.keys Keys to print as columns.
- * @param {Object.<string, string>[]} config.data An array of data items to prints as rows.
- * @param {Object.<string, string>} [config.headings] Display names for each column.
- * @param {Object.<string, Replacement>} [config.replacements] A map of replacement functions which will run against data items.
- * @param {string[]} [config.centerValues] Centre values of this column (use original keys, not headings)
- * @param {string[]} [config.centerHeadings] Center headings of this column (use original keys, not headings)
+ * @param {Config} conf Options for the program.
+ * @param {Array<string>} conf.keys Keys to print as columns.
+ * @param {Array<Object<string, string>>} conf.data The array of data items to prints as rows.
+ * @param {Object<string, string>} [conf.headings] Display names for each column.
+ * @param {Object.<string, Replacement>} conf.replacements A map of replacement functions which will run against data items.
+ * @param {Array<string>} [conf.centerValues] Centre values of these column (use original keys, not headings).
+ * @param {Array<string>} [conf.centerHeadings] Center headings of these column (use original keys, not headings).
  * @returns {string} A string which represents a table.
  */
 export default function tablature(conf) {
@@ -109,14 +109,26 @@ const pad = (val, length, replacement, cen) => {
 }
 
 const getLine = (keys, values, widths, replacements = {}, center = {}) => {
+  let currentWidth = 0
   const k = keys.map(key => {
     const w = widths[key]
     if (!w) throw new Error(`Unknown field ${key}`)
     const v = values[key]
     const r = replacements[key]
     const cen = center[key]
-    const p = pad(v, w, r, cen)
-    return p
+    const [rh, ...rows] = v.split('\n')
+    const h = pad(rh, w, r, cen)
+    let rs = ''
+    if (rows.length) {
+      rs = '\n' + rows.map(row => {
+        const wb = ' '.repeat(currentWidth)
+        const rv = pad(row, w, r, cen)
+        return `${wb}${rv}`
+      }).join('\n')
+    }
+    const res = `${h}${rs}`
+    currentWidth += w + 2
+    return res
   })
   const line = k.join('  ')
   return line
@@ -125,13 +137,15 @@ const getLine = (keys, values, widths, replacements = {}, center = {}) => {
 
 /**
  * @typedef {(value: string) => {value: string, length: number}} Replacement A replacement function.
- *
- *
- * @typedef {Object} Config
- * @property {string[]} keys Keys to print as columns.
- * @property {Object.<string, string>[]} data An array of data items to prints as rows.
- * @property {Object.<string, string>} [headings = {}] Replace data keys with headings.
- * @property {Object.<string, Replacement>} [replacements] Replace data values with this values.
- * @property {string[]} [centerValues] Center values of this column (use original keys, not headings)
- * @property {string[]} [centerHeadings Center headings of this column (use original keys, not headings)
+ */
+
+/* documentary types/index.xml */
+/**
+ * @typedef {Object} Config Options for the program.
+ * @prop {Array<string>} keys Keys to print as columns.
+ * @prop {Array<Object<string, string>>} data The array of data items to prints as rows.
+ * @prop {Object<string, string>} [headings] Display names for each column.
+ * @prop {Object.<string, Replacement>} replacements A map of replacement functions which will run against data items.
+ * @prop {Array<string>} [centerValues] Centre values of these column (use original keys, not headings).
+ * @prop {Array<string>} [centerHeadings] Center headings of these column (use original keys, not headings).
  */
