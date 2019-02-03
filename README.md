@@ -13,6 +13,7 @@ yarn add -E tablature
 - [Table Of Contents](#table-of-contents)
 - [API](#api)
 - [`tablature(config: config): String`](#tablatureconfig-config-string)
+  * [`Replacement`](#type-replacement)
   * [`Config`](#type-config)
   * [Replacement](#replacement)
 - [Copyright](#copyright)
@@ -33,16 +34,18 @@ import tablature from 'tablature'
 
 Returns a string representation of data as a table.
 
+`{(value: string) => {value: string, length: number}` __<a name="type-replacement">`Replacement`</a>__: The function to use to replace values for display.
+
 __<a name="type-config">`Config`</a>__: Options for the program.
 
-|       Name        |                   Type                   |                            Description                             |
-| ----------------- | ---------------------------------------- | ------------------------------------------------------------------ |
-| __keys*__         | _Array&lt;string&gt;_                    | Keys to print as columns.                                          |
-| __data*__         | _Array&lt;Object&lt;string, string&gt;>_ | The array of data items to prints as rows.                         |
-| headings          | _Object&lt;string, string&gt;_           | Display names for each column.                                     |
-| __replacements*__ | _Object.&lt;string, Replacement&gt;_     | A map of replacement functions which will run against data items.  |
-| centerValues      | _Array&lt;string&gt;_                    | Centre values of these column (use original keys, not headings).   |
-| centerHeadings    | _Array&lt;string&gt;_                    | Center headings of these column (use original keys, not headings). |
+|      Name      |                           Type                            |                             Description                             |
+| -------------- | --------------------------------------------------------- | ------------------------------------------------------------------- |
+| __keys*__      | _Array&lt;string&gt;_                                     | Keys to print as columns.                                           |
+| __data*__      | _Array&lt;Object&lt;string, string&gt;>_                  | The array of data items to prints as rows.                          |
+| headings       | _Object&lt;string, string&gt;_                            | The display names for each column.                                  |
+| replacements   | _Object.&lt;string, [Replacement](#type-replacement)&gt;_ | The map of replacement functions which will run against data items. |
+| centerValues   | _Array&lt;string&gt;_                                     | Centre values of these column (use original keys, not headings).    |
+| centerHeadings | _Array&lt;string&gt;_                                     | Center headings of these column (use original keys, not headings).  |
 
 ```js
 import tablature from 'tablature'
