@@ -1,0 +1,3 @@
+[1mname[0m          [1mvalue[0m
+[31mtest[0m          test 
+[32manother test[0m  test2

@@ -38,6 +38,7 @@
   "devDependencies": {
     "alamode": "1.7.3",
     "documentary": "1.21.1",
+    "erte": "1.1.6",
     "eslint": "5.13.0",
     "eslint-config-artdeco": "1.0.1",
     "snapshot-context": "2.0.4",

@@ -28,7 +28,7 @@ const makeBinaryHash = (arr) => {
  * @param {Array<string>} [conf.centerHeadings] Center headings of these column (use original keys, not headings).
  * @returns {string} A string which represents a table.
  */
-export default function tablature(conf) {
+               function tablature(conf) {
   const {
     keys = [],
     data = [],
@@ -158,3 +158,6 @@ const getLine = (keys, values, widths, replacements = {}, center = {}) => {
  * @prop {Array<string>} [centerValues] Centre values of these column (use original keys, not headings).
  * @prop {Array<string>} [centerHeadings] Center headings of these column (use original keys, not headings).
  */
+
+
+module.exports = tablature

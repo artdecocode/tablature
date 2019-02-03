@@ -9,14 +9,11 @@
       "request": "launch",
       "name": "Launch Zoroaster",
       "program": "${workspaceFolder}/node_modules/.bin/zoroaster",
-      "env": {
-        "BABEL_ENV": "debug",
-        "ZOROASTER_TIMEOUT": "9999999"
-      },
       "console": "integratedTerminal",
       "args": [
         "test/spec",
-        "--babel"
+        "-a",
+        "-t", "9999999"
       ]
     }
   ]

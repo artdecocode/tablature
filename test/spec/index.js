@@ -1,5 +1,6 @@
 import { equal } from 'zoroaster/assert'
 import SnapshotContext from 'snapshot-context'
+import { c } from 'erte'
 import Context from '../context'
 import tablature from '../../src'
 
@@ -71,6 +72,20 @@ const T = {
       }],
     })
     await test('new-lines.txt', res.trim())
+  },
+  async 'strips ansii'({ SNAPSHOT_DIR }, { setDir, test }) {
+    setDir(SNAPSHOT_DIR)
+    const res = tablature({
+      keys: ['name', 'value'],
+      data: [{
+        name: c('test', 'red'),
+        value: 'test',
+      }, {
+        name: c('another test', 'green'),
+        value: 'test2',
+      }],
+    })
+    await test('ansii.txt', res.trim())
   },
 }
 
