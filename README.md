@@ -79,9 +79,11 @@ hello  yesterday
 world     now
 ```
 
+<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/2.svg?sanitize=true" width="15"></a></p>
+
 ### Replacement
 
-A replacement function must return an object containing `value` and `length` property. This is to enable printing of Unix escape codes.
+A replacement function must return an object containing `value` and `length` property. When replacements are not given, the ANSI codes are removed by _Tablature_, however, the replacement must always return the value along with its length.
 
 ```js
 const isEnabled = (value) => {
@@ -95,7 +97,7 @@ const replacements = {
 }
 ```
 
-<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/2.svg?sanitize=true"></a></p>
+<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/3.svg?sanitize=true"></a></p>
 
 ## Copyright
 

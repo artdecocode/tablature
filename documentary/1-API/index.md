@@ -21,9 +21,11 @@ Returns a string representation of data as a table.
 %EXAMPLE: example/example.js, ../src => tablature%
 %FORK example example/example%
 
+%~ width="15"%
+
 ### Replacement
 
-A replacement function must return an object containing `value` and `length` property. This is to enable printing of Unix escape codes.
+A replacement function must return an object containing `value` and `length` property. When replacements are not given, the ANSI codes are removed by _Tablature_, however, the replacement must always return the value along with its length.
 
 ```js
 const isEnabled = (value) => {
