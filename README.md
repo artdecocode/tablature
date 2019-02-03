@@ -34,7 +34,7 @@ import tablature from 'tablature'
 
 Returns a string representation of data as a table.
 
-`{(value: string) => {value: string, length: number}` __<a name="type-replacement">`Replacement`</a>__: The function to use to replace values for display.
+`(value: string) => {value: string, length: number}` __<a name="type-replacement">`Replacement`</a>__: The function to use to replace values for display.
 
 __<a name="type-config">`Config`</a>__: Options for the program.
 
