@@ -1,3 +1,9 @@
+## 15 May 2019
+
+### [1.1.1](https://github.com/artdecocode/tablature/compare/v1.1.0...v1.1.1)
+
+- [fix] Work with non-string data.
+
 ## 3 February 2019
 
 ### 1.1.0
