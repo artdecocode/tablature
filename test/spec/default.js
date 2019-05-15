@@ -9,14 +9,14 @@ const T = {
   'is a function'() {
     equal(typeof tablature, 'function')
   },
-  async 'prints correct data'({ DATA }) {
+  'prints correct data'({ DATA }) {
     const res = tablature({
       keys: ['name', 'when'],
       data: DATA,
     })
     return res
   },
-  async 'centers heading'({ DATA }) {
+  'centers heading'({ DATA }) {
     const res = tablature({
       keys: ['name', 'when'],
       data: DATA,
@@ -24,7 +24,7 @@ const T = {
     })
     return res
   },
-  async 'centers values'({ DATA }) {
+  'centers values'({ DATA }) {
     const res = tablature({
       keys: ['name', 'when'],
       data: DATA,
@@ -35,7 +35,14 @@ const T = {
     })
     return res
   },
-  async 'replaces values'({ DATA }) {
+  'works with non-string data'() {
+    const res = tablature({
+      keys: ['name', 'n'],
+      data: [{ name: 'test', n: '0' }],
+    })
+    return res
+  },
+  'replaces values'({ DATA }) {
     const res = tablature({
       keys: ['name', 'when'],
       data: DATA,
@@ -51,7 +58,7 @@ const T = {
     })
     return res
   },
-  async 'goes to new lines'() {
+  'goes to new lines'() {
     const res = tablature({
       keys: ['name', 'value'],
       data: [{
@@ -64,7 +71,7 @@ const T = {
     })
     return res
   },
-  async 'strips ansii'() {
+  'strips ansii'() {
     const res = tablature({
       keys: ['name', 'value'],
       data: [{
