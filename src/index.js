@@ -4,7 +4,7 @@ const heading = (h) => {
 }
 
 const getLength = (value) => {
-  return value.replace(/\033\[.*?m/g, '').length
+  return `${value}`.replace(/\033\[.*?m/g, '').length
 }
 
 const makeBinaryHash = (arr) => {
@@ -128,7 +128,7 @@ const getLine = (keys, values, widths, replacements = {}, center = {}) => {
     const v = values[key]
     const r = getReplacement(replacements, key)
     const cen = center[key]
-    const [rh, ...rows] = v.split('\n')
+    const [rh, ...rows] = `${v}`.split('\n')
     const h = pad(rh, w, r, cen)
     let rs = ''
     if (rows.length) {

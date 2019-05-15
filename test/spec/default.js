@@ -1,37 +1,30 @@
-import { equal } from 'zoroaster/assert'
-import SnapshotContext from 'snapshot-context'
+import { equal } from '@zoroaster/assert'
 import { c } from 'erte'
 import Context from '../context'
 import tablature from '../../src'
 
-/** @type {Object.<string, (c: Context, s: SnapshotContext)>} */
+/** @type {Object.<string, (c: Context)>} */
 const T = {
-  context: [
-    Context,
-    SnapshotContext,
-  ],
+  context: Context,
   'is a function'() {
     equal(typeof tablature, 'function')
   },
-  async 'prints correct data'({ DATA, SNAPSHOT_DIR }, { setDir, test }) {
-    setDir(SNAPSHOT_DIR)
+  async 'prints correct data'({ DATA }) {
     const res = tablature({
       keys: ['name', 'when'],
       data: DATA,
     })
-    await test('normal.txt', res.trim())
+    return res
   },
-  async 'centers heading'({ DATA, SNAPSHOT_DIR }, { setDir, test }) {
-    setDir(SNAPSHOT_DIR)
+  async 'centers heading'({ DATA }) {
     const res = tablature({
       keys: ['name', 'when'],
       data: DATA,
       centerHeadings: ['when'],
     })
-    await test('heading-center.txt', res.trim())
+    return res
   },
-  async 'centers values'({ DATA, SNAPSHOT_DIR }, { setDir, test }) {
-    setDir(SNAPSHOT_DIR)
+  async 'centers values'({ DATA }) {
     const res = tablature({
       keys: ['name', 'when'],
       data: DATA,
@@ -40,10 +33,9 @@ const T = {
         when: 'When',
       },
     })
-    await test('values-center.txt', res.trim())
+    return res
   },
-  async 'replaces values'({ DATA, SNAPSHOT_DIR }, { setDir, test }) {
-    setDir(SNAPSHOT_DIR)
+  async 'replaces values'({ DATA }) {
     const res = tablature({
       keys: ['name', 'when'],
       data: DATA,
@@ -57,10 +49,9 @@ const T = {
         },
       },
     })
-    await test('replacements.txt', res.trim())
+    return res
   },
-  async 'goes to new lines'({ SNAPSHOT_DIR }, { setDir, test }) {
-    setDir(SNAPSHOT_DIR)
+  async 'goes to new lines'() {
     const res = tablature({
       keys: ['name', 'value'],
       data: [{
@@ -71,10 +62,9 @@ const T = {
         value: 'another test\nwith new line',
       }],
     })
-    await test('new-lines.txt', res.trim())
+    return res
   },
-  async 'strips ansii'({ SNAPSHOT_DIR }, { setDir, test }) {
-    setDir(SNAPSHOT_DIR)
+  async 'strips ansii'() {
     const res = tablature({
       keys: ['name', 'value'],
       data: [{
@@ -85,7 +75,7 @@ const T = {
         value: 'test2',
       }],
     })
-    await test('ansii.txt', res.trim())
+    return res
   },
 }
 

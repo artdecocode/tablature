@@ -1,4 +1,4 @@
 [1mname[0m   [1mvalue[0m                     
 test   OK this is a test         
 test2  another test              
-       with new line
+       with new line             
