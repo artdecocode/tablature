@@ -16,12 +16,12 @@ import tablature from 'tablature'
 
 Returns a string representation of data as a table.
 
-%TYPEDEF types/index.xml%
+<typedef>types/index.xml</typedef>
 
-%EXAMPLE: example/example.js, ../src => tablature%
-%FORK example example/example%
+%EXAMPLE: example, ../src => tablature%
+%FORK example%
 
-%~ width="15"%
+%~ width="25"%
 
 ### Replacement
 
