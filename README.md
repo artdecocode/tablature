@@ -12,7 +12,7 @@ yarn add tablature
 
 - [Table Of Contents](#table-of-contents)
 - [API](#api)
-- [`tablature(config: config): String`](#tablatureconfig-config-string)
+- [`tablature(config: Config): string`](#tablatureconfig-config-string)
   * [`Replacement`](#type-replacement)
   * [`Config`](#type-config)
   * [Replacement](#replacement)
@@ -34,7 +34,7 @@ import tablature from 'tablature'
   <img src="/.documentary/section-breaks/1.svg?sanitize=true">
 </a></p>
 
-## `tablature(`<br/>&nbsp;&nbsp;`config: config,`<br/>`): String`
+## `tablature(`<br/>&nbsp;&nbsp;`config: Config,`<br/>`): string`
 
 Returns a string representation of data as a table.
 
@@ -98,6 +98,10 @@ __<a name="type-config">`Config`</a>__: Options for the program.
  </tr>
 </table>
 
+<table>
+<tr><th>Source</th><th>Output</th></tr>
+<tr><td>
+
 ```js
 import tablature from 'tablature'
 
@@ -124,11 +128,16 @@ const res = tablature({
 })
 console.log(res)
 ```
+</td>
+<td>
+
 ```
 Name     When   
 hello  yesterday
 world     now
 ```
+</td></tr>
+</table>
 
 <p align="center"><a href="#table-of-contents">
   <img src="/.documentary/section-breaks/2.svg?sanitize=true" width="25">

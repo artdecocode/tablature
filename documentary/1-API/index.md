@@ -8,9 +8,9 @@ import tablature from 'tablature'
 
 %~%
 
-```## tablature => String
+```## tablature => string
 [
-  ["config", "config"]
+  ["config", "Config"]
 ]
 ```
 
@@ -18,8 +18,18 @@ Returns a string representation of data as a table.
 
 <typedef narrow>types/index.xml</typedef>
 
+<table>
+<tr><th>Source</th><th>Output</th></tr>
+<!-- block-start -->
+<tr><td>
+
 %EXAMPLE: example, ../src => tablature%
+</td>
+<td>
+
 %FORK example%
+</td></tr>
+</table>
 
 %~ width="25"%
 
