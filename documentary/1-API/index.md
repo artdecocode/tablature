@@ -16,7 +16,7 @@ import tablature from 'tablature'
 
 Returns a string representation of data as a table.
 
-<typedef>types/index.xml</typedef>
+<typedef narrow>types/index.xml</typedef>
 
 %EXAMPLE: example, ../src => tablature%
 %FORK example%

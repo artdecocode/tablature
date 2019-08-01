@@ -5,7 +5,7 @@
 `tablature` Will Display Data In A Table In CLI.
 
 ```sh
-yarn add -E tablature
+yarn add tablature
 ```
 
 ## Table Of Contents
@@ -13,8 +13,8 @@ yarn add -E tablature
 - [Table Of Contents](#table-of-contents)
 - [API](#api)
 - [`tablature(config: config): String`](#tablatureconfig-config-string)
-  * [`_tablature.Replacement`](#type-_tablaturereplacement)
-  * [`_tablature.Config`](#type-_tablatureconfig)
+  * [`Replacement`](#type-replacement)
+  * [`Config`](#type-config)
   * [Replacement](#replacement)
 - [Copyright](#copyright)
 
@@ -38,21 +38,65 @@ import tablature from 'tablature'
 
 Returns a string representation of data as a table.
 
-`(value: string) => {value: string, length: number}` <strong><a name="type-_tablaturereplacement">`_tablature.Replacement`</a></strong>: The function to use to replace values for display.
+`(value: string) => {value: string, length: number}` __<a name="type-replacement">`Replacement`</a>__: The function to use to replace values for display.
 
 
 
-<strong><a name="type-_tablatureconfig">`_tablature.Config`</a></strong>: Options for the program.
-
-
-|      Name      |                                                                            Type                                                                             |                             Description                             |
-| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| __keys*__      | <em>!Array&lt;string&gt;</em>                                                                                                                               | Keys to print as columns.                                           |
-| __data*__      | <em>!Array&lt;!Object&lt;string, string&gt;&gt;</em>                                                                                                        | The array of data items to prints as rows.                          |
-| headings       | <em>!Object&lt;string, string&gt;</em>                                                                                                                      | The display names for each column.                                  |
-| replacements   | <em>!Object&lt;string, <a href="#type-_tablaturereplacement" title="The function to use to replace values for display.">_tablature.Replacement</a>&gt;</em> | The map of replacement functions which will run against data items. |
-| centerValues   | <em>!Array&lt;string&gt;</em>                                                                                                                               | Centre values of these column (use original keys, not headings).    |
-| centerHeadings | <em>!Array&lt;string&gt;</em>                                                                                                                               | Center headings of these column (use original keys, not headings).  |
+__<a name="type-config">`Config`</a>__: Options for the program.
+<table>
+ <thead><tr>
+  <th>Name</th>
+  <th>Type &amp; Description</th>
+ </tr></thead>
+ <tr>
+  <td rowSpan="3" align="center"><strong>keys*</strong></td>
+  <td><em>!Array&lt;string&gt;</em></td>
+ </tr>
+ <tr></tr>
+ <tr>
+  <td>Keys to print as columns.</td>
+ </tr>
+ <tr>
+  <td rowSpan="3" align="center"><strong>data*</strong></td>
+  <td><em>!Array&lt;!Object&lt;string, string&gt;&gt;</em></td>
+ </tr>
+ <tr></tr>
+ <tr>
+  <td>The array of data items to prints as rows.</td>
+ </tr>
+ <tr>
+  <td rowSpan="3" align="center">headings</td>
+  <td><em>!Object&lt;string, string&gt;</em></td>
+ </tr>
+ <tr></tr>
+ <tr>
+  <td>The display names for each column.</td>
+ </tr>
+ <tr>
+  <td rowSpan="3" align="center">replacements</td>
+  <td><em>!Object&lt;string, <a href="#type-replacement" title="The function to use to replace values for display.">Replacement</a>&gt;</em></td>
+ </tr>
+ <tr></tr>
+ <tr>
+  <td>The map of replacement functions which will run against data items.</td>
+ </tr>
+ <tr>
+  <td rowSpan="3" align="center">centerValues</td>
+  <td><em>!Array&lt;string&gt;</em></td>
+ </tr>
+ <tr></tr>
+ <tr>
+  <td>Centre values of these column (use original keys, not headings).</td>
+ </tr>
+ <tr>
+  <td rowSpan="3" align="center">centerHeadings</td>
+  <td><em>!Array&lt;string&gt;</em></td>
+ </tr>
+ <tr></tr>
+ <tr>
+  <td>Center headings of these column (use original keys, not headings).</td>
+ </tr>
+</table>
 
 ```js
 import tablature from 'tablature'

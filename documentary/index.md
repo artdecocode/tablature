@@ -5,7 +5,7 @@
 `tablature` Will Display Data In A Table In CLI.
 
 ```sh
-yarn add -E tablature
+yarn add tablature
 ```
 
 ## Table Of Contents
