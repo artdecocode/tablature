@@ -2,7 +2,7 @@
   "name": "tablature",
   "version": "1.1.1",
   "description": "Display Tabular Data.",
-  "main": "build/index.js",
+  "main": "compile/index.js",
   "module": "src/index.js",
   "scripts": {
     "t": "zoroaster -a",
@@ -12,7 +12,9 @@
     "test-watch": "yarn test -w",
     "lint": "eslint .",
     "doc": "NODE_DEBUG=doc doc documentary -o README.md",
-    "d": "NODE_DEBUG=doc doc src/index.js -g",
+    "d": "yarn-s d1 externs",
+    "d1": "typal compile/index.js -c",
+    "externs": "typal types/externs.js",
     "e": "node example",
     "example/": "yarn e example/example.js",
     "b": "alamode src -o build -s"
@@ -36,10 +38,11 @@
   },
   "homepage": "https://github.com/artdecocode/tablature#readme",
   "devDependencies": {
-    "alamode": "^2.2.0",
-    "documentary": "^1.27.3",
+    "alamode": "^2.3.6",
+    "documentary": "^1.29.0",
     "erte": "^1.2.0",
     "eslint-config-artdeco": "1.0.1",
+    "typal": "^1.19.1",
     "yarn-s": "1.1.0",
     "zoroaster": "^4.1.1-alpha"
   }

@@ -19,14 +19,7 @@ const makeBinaryHash = (arr) => {
 
 /**
  * Display values in a table.
- * @param {Config} conf Options for the program.
- * @param {Array<string>} conf.keys Keys to print as columns.
- * @param {Array<Object<string, string>>} conf.data The array of data items to prints as rows.
- * @param {Object<string, string>} [conf.headings] The display names for each column.
- * @param {Object.<string, Replacement>} [conf.replacements] The map of replacement functions which will run against data items.
- * @param {Array<string>} [conf.centerValues] Centre values of these column (use original keys, not headings).
- * @param {Array<string>} [conf.centerHeadings] Center headings of these column (use original keys, not headings).
- * @returns {string} A string which represents a table.
+ * @param {!_tablature.Config} conf Options for the program.
  */
 export default function tablature(conf) {
   const {
@@ -146,15 +139,7 @@ const getLine = (keys, values, widths, replacements = {}, center = {}) => {
   return line
 }
 
-/* documentary types/index.xml */
 /**
- * @typedef {(value: string) => {value: string, length: number}} Replacement The function to use to replace values for display.
- *
- * @typedef {Object} Config Options for the program.
- * @prop {Array<string>} keys Keys to print as columns.
- * @prop {Array<Object<string, string>>} data The array of data items to prints as rows.
- * @prop {Object<string, string>} [headings] The display names for each column.
- * @prop {Object.<string, Replacement>} [replacements] The map of replacement functions which will run against data items.
- * @prop {Array<string>} [centerValues] Centre values of these column (use original keys, not headings).
- * @prop {Array<string>} [centerHeadings] Center headings of these column (use original keys, not headings).
+ * @suppress {nonStandardJsDocs}
+ * @typedef {import('..').Config} _tablature.Config
  */

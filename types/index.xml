@@ -1,22 +1,26 @@
-<types>
-  <type name="Replacement" type="(value: string) => {value: string, length: number}" desc="The function to use to replace values for display."/>
-  <type name="Config" desc="Options for the program.">
-    <prop type="Array<string>" name="keys">
+<types namespace="_tablature">
+  <type name="Replacement"
+    type="(value: string) => {value: string, length: number}"
+    closure="function(string): { value: string, length: number }"
+    desc="The function to use to replace values for display."/>
+
+  <type record name="Config" desc="Options for the program.">
+    <prop type="!Array<string>" name="keys">
       Keys to print as columns.
     </prop>
-    <prop type="Array<Object<string, string>>" name="data">
+    <prop type="!Array<!Object<string, string>>" name="data">
       The array of data items to prints as rows.
     </prop>
-    <prop opt type="Object<string, string>" name="headings">
+    <prop opt type="!Object<string, string>" name="headings">
       The display names for each column.
     </prop>
-    <prop opt type="Object.<string, Replacement>" name="replacements">
+    <prop opt type="!Object<string, _tablature.Replacement>" name="replacements">
       The map of replacement functions which will run against data items.
     </prop>
-    <prop opt type="Array<string>" name="centerValues">
+    <prop opt type="!Array<string>" name="centerValues">
       Centre values of these column (use original keys, not headings).
     </prop>
-    <prop opt type="Array<string>" name="centerHeadings">
+    <prop opt type="!Array<string>" name="centerHeadings">
       Center headings of these column (use original keys, not headings).
     </prop>
   </type>
