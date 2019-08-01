@@ -7,11 +7,10 @@
   "scripts": {
     "t": "zoroaster -a",
     "test": "zoroaster -a test/spec",
-    "test-build": "ALAMODE_ENV=test-build yarn test",
-    "test-all": "yarn-s test test-build",
-    "test-watch": "yarn test -w",
+    "test-compile": "ALAMODE_ENV=test-compile yarn test",
+    "compile": "depack-dev src/depack -o compile/tablature.js -a -c -p --source_map_include_content -O 2018",
     "lint": "eslint .",
-    "doc": "NODE_DEBUG=doc doc documentary -o README.md",
+    "doc": "NODE_DEBUG=doc doc -o README.md",
     "d": "yarn-s d1 externs",
     "d1": "typal compile/index.js -c",
     "externs": "typal types/externs.js",
@@ -20,9 +19,11 @@
     "b": "alamode src -o build -s"
   },
   "files": [
-    "build",
-    "src"
+    "compile",
+    "src",
+    "types"
   ],
+  "externs": "types/externs.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/artdecocode/tablature.git"
